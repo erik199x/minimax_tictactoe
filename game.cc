@@ -2,6 +2,11 @@
 #include "tictactoe.h"
 #include <iostream>
 
+Game::Game() : grid {' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '}
+{
+
+}
+
 void Game::print_grid()
 {
     char g[] =

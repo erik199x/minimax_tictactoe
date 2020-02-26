@@ -7,6 +7,7 @@ class Game {
     public:
         char grid[9];
 
+        Game();
         void print_grid();
 };
 
