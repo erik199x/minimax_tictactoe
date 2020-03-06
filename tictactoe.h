@@ -14,6 +14,9 @@ class Game {
         int input();
         bool player_move();
         bool valid_move(int move);
+
+        int minimax(int depth, bool max, int prev_move);
+        bool check_win(int prev_move);
 };
 
 #endif

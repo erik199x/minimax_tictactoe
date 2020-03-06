@@ -80,8 +80,46 @@ bool Game::valid_move(int move)
     return false;
 }
 
+int Game::minimax(int depth, bool max, int prev_move)
+{
+    if (check_win(prev_move))
+        return max ? -10 : 10 - depth;
 
+    if (depth == 9)
+        return 0;
 
+    if (max) {
+        int value = -1;
+
+        for (int move = 1 ; move <= 9 ; move++) {
+            if (valid_move(move)) {
+                grid[move - 1] = computer;
+                value = std::max(value, minimax(depth + 1, false, move));
+                grid[move - 1] = move - 1;
+            }
+        }
+
+        return value;
+    }
+    else {
+        int value = 10;
+
+        for (int move = 1 ; move <= 9 ; move++) {
+            if (valid_move(move)) {
+                grid[move - 1] = player;
+                value = std::min(value, minimax(depth + 1, true, move));
+                grid[move - 1] = move - 1;
+            }
+        }
+
+        return value;
+    }
+}
+
+bool Game::check_win(int prev_move)
+{
+    return false;
+}
 
 
 
