@@ -4,7 +4,8 @@
 
 int main()
 {
-
+    Game g = Game();
+    g.start();
     return EXIT_FAILURE;
 }
 
